@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AGE CALCULATOR</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .centrato {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function calcolaEta() {
+            var dataNascita = new Date("2009-06-24");
+            var dataCorrente = new Date();
+            var differenza = dataCorrente - dataNascita;
+            var etaInMillisecondi = differenza;
+            var millisecondiInUnAnno = 1000 * 60 * 60 * 24 * 365.25;
+            var etaInAnni = etaInMillisecondi / millisecondiInUnAnno;
+            document.getElementById("eta").innerHTML = "AGE: " + etaInAnni.toFixed(9) + " YEAR";
+        }
+
+        setInterval(calcolaEta, 100);
+    </script>
+</head>
+<body>
+    <div class="centrato">
+      <center>  <h1 id="eta">AGE: Calcolando...</h1></center>
+    </div>
+</body>
+</html>
