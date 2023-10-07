@@ -22,7 +22,7 @@
             var etaInMillisecondi = differenza;
             var millisecondiInUnAnno = 1000 * 60 * 60 * 24 * 365.25;
             var etaInAnni = etaInMillisecondi / millisecondiInUnAnno;
-            document.getElementById("eta").innerHTML = "AGE: " + etaInAnni.toFixed(9) + " YEAR";
+            document.getElementById("age").innerHTML = "AGE: " + etaInAnni.toFixed(9) + " YEAR";
         }
 
         setInterval(calcolaEta, 100);
@@ -30,7 +30,7 @@
 </head>
 <body>
     <div class="centrato">
-      <center>  <h1 id="eta">AGE: Calcolando...</h1></center>
+      <center>  <h1 id="age">AGE: Calculating </h1></center>
     </div>
 </body>
 </html>
