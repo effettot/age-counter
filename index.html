@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AGE CALCULATOR</title>
+    <title>AGE CALCULATOR / by effetto</title>
     <style>
         body {
             display: flex;
@@ -14,12 +14,12 @@
             text-align: center;
         }
         .age {
-            font-size: 0.8em;
+            font-size: 1.5em;
             text-transform: lowercase;
             display: block;
         }
         .numero-intero {
-            font-size: 2em;
+            font-size: 3em;
             font-weight: bold;
             display: inline;
         }
@@ -27,18 +27,15 @@
 </head>
 <body>
     <div class="centrato">
-        <h1>AGE CALCULATOR</h1>
-        <label for="birthdate">Enter your birthdate:</label>
+        <h1 id="age-calculator-label">AGE CALCULATOR</h1>
         <input type="date" id="birthdate">
         <p id="age"></p>
     </div>
     
     <script>
         function calcolaEta() {
-            // Get the user's input date as a string in yyyy-mm-dd format
             var userInput = document.getElementById("birthdate").value;
 
-            // Split the input into year, month, and day
             var parts = userInput.split("-");
             if (parts.length !== 3) {
                 document.getElementById("age").innerHTML = "Invalid date";
@@ -49,13 +46,12 @@
             var month = parseInt(parts[1]);
             var day = parseInt(parts[2]);
 
-            // Check if the input date is valid
             if (isNaN(year) || isNaN(month) || isNaN(day) || year < 1900) {
                 document.getElementById("age").innerHTML = "Invalid date";
                 return;
             }
 
-            var dataNascita = new Date(year, month - 1, day); // Month is 0-based
+            var dataNascita = new Date(year, month - 1, day);
 
             var dataCorrente = new Date();
             var differenza = dataCorrente - dataNascita;
@@ -64,13 +60,15 @@
             var etaInAnni = etaInMillisecondi / millisecondiInUnAnno;
             var etaFormattata = etaInAnni.toFixed(9);
             var partiEta = etaFormattata.split('.');
-            var testoEta = '<span class="numero-intero">' + partiEta[0] + '</span>.' + partiEta[1] + ' year';
-            document.getElementById("age").innerHTML = '<span class="age">age</span> ' + testoEta;
+            var testoEta = '<h1><span class="numero-intero">' + partiEta[0] + '</span>.' + partiEta[1] + ' year';
+            document.getElementById("age").innerHTML = '<span class=""></span> ' + testoEta;
+
+            // Nascondi il testo "AGE CALCULATOR"
+            document.getElementById("age-calculator-label").style.display = "none";
         }
 
-        // Call the calcolaEta function immediately and then at regular intervals
-        calcolaEta(); // Call it immediately
-        setInterval(calcolaEta, 1); // Call it every 1000 milliseconds (1 second)
+        calcolaEta(); 
+        setInterval(calcolaEta, 1); 
     </script>
 </body>
 </html>
